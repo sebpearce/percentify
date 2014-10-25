@@ -1,0 +1,77 @@
+.page-wrapper {
+  padding: 40px 20px 100px 20px;
+  color: #333333;
+  text-align: center; }
+
+#input-container {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center; }
+
+#results-table-container {
+  display: inline-block;
+  margin: 0 auto; }
+
+#checkbox-container {
+  position: absolute;
+  font: bold 14px "Helvetica Neue", sans-serif;
+  top: 10px;
+  left: 5px; }
+  #checkbox-container input {
+    margin-right: -5px; }
+  #checkbox-container label {
+    font-weight: normal;
+    margin-right: 10px; }
+
+h1 {
+  font: 24px "Helvetica Neue", "Verdana", sans-serif;
+  text-align: center;
+  padding-bottom: 30px;
+  display: none; }
+
+label {
+  padding-bottom: 20px;
+  font: bold 14px "Helvetica Neue", sans-serif; }
+
+input {
+  font: 16px "Helvetica Neue", "Verdana", sans-serif;
+  text-align: left;
+  width: 30px;
+  outline: none;
+  border: none;
+  margin-bottom: 30px; }
+
+.results-table {
+  float: left;
+  font: bold 16px "Helvetica Neue", sans-serif;
+  margin: 0 10px 20px 0; }
+  .results-table td, .results-table th {
+    padding: 6px;
+    min-width: 65px;
+    text-align: center;
+    color: #333333; }
+  .results-table td {
+    font-weight: normal;
+    text-align: right;
+    padding-right: 10px; }
+    .results-table td.pc {
+      min-width: 50px;
+      padding-right: 10px; }
+  .results-table tr:nth-child(even) {
+    background-color: whitesmoke; }
+  .results-table tr:nth-child(odd) {
+    background-color: white; }
+  .results-table .out-of {
+    color: #cccccc; }
+
+@media print {
+  body * {
+    visibility: hidden; }
+
+  #results-table-container * {
+    visibility: visible; }
+
+  #results-table-container {
+    position: absolute;
+    left: 0;
+    top: 0; } }

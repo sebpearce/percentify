@@ -1,0 +1,120 @@
+$default-font: 'Helvetica Neue', 'Verdana', sans-serif;
+$main-heading-size: 24px;
+$input-font: 16px $default-font;
+$label-font: bold 14px 'Helvetica Neue', sans-serif;
+$table-font: bold 16px 'Helvetica Neue', sans-serif;
+$default-font-color: #333;
+$table-even-row-color: hsl(0,0%,96%);
+
+.page-wrapper {
+  padding: 40px 20px 100px 20px;
+  color: $default-font-color;
+  text-align: center;
+}
+
+#input-container {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#results-table-container {
+  display: inline-block;
+  // min-width: 400px;
+  margin: 0 auto;
+  // background-color: hsl(110,50%,95%);
+}
+
+#checkbox-container {
+  position: absolute;
+  font: $label-font;
+  top: 10px;
+  left: 5px;
+  input {
+    margin-right: -5px;
+  }
+  label {
+    font-weight: normal;
+    margin-right: 10px;
+  }
+}
+
+h1 {
+  font: $main-heading-size $default-font;
+  text-align: center;
+  padding-bottom: 30px;
+  display: none;
+}
+
+label {
+  padding-bottom: 20px;
+  font: $label-font;
+}
+
+input {
+  font: $input-font;
+  text-align: left;
+  width: 30px;
+  outline: none;
+  border: none;
+  margin-bottom: 30px;
+}
+
+.results-table {
+  float: left;
+  font: $table-font;
+  margin: 0 10px 20px 0;
+  td, th {
+    padding: 6px;
+    min-width: 65px;
+    text-align: center;
+    color: $default-font-color;
+  }
+  th {
+  }
+  td {
+    font-weight: normal;
+    text-align: right;
+    padding-right: 10px;
+    &.pc {
+      // padding-left: 18px;
+      // border-left: 1px solid #aaa;
+      min-width: 50px;
+      padding-right: 10px;
+      // background-color: pink;
+    }
+  }
+  tr {
+    &:nth-child(even) {
+    background-color: $table-even-row-color;
+    }
+    &:nth-child(odd) {
+    background-color: white;
+    }
+  }
+  // &:first-child {
+  //   td.score {
+  //     border-left: none;
+  //   }
+  // }
+  .out-of {
+    color: lighten($default-font-color,60%);
+  }
+}
+
+@media print {
+  // label, input {
+  //   visibility: hidden;
+  // }
+  body * {
+    visibility: hidden;
+  }
+  #results-table-container * {
+    visibility: visible;
+  }
+  #results-table-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
