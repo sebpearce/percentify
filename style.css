@@ -35,19 +35,25 @@ label {
 
 input {
   font: 16px "Helvetica Neue", "Verdana", sans-serif;
-  text-align: left;
+  text-align: center;
   width: 30px;
   outline: none;
   border: none;
+  margin-bottom: 20px;
+  color: #5c99d6;
+  font-weight: bold;
+  background-color: #f1f7fd; }
+
+#worth-input {
   margin-bottom: 30px; }
 
 .results-table {
   float: left;
-  font: bold 16px "Helvetica Neue", sans-serif;
+  font: bold 14px "Helvetica Neue", sans-serif;
   margin: 0 10px 20px 0; }
   .results-table td, .results-table th {
     padding: 6px;
-    min-width: 65px;
+    min-width: 50px;
     text-align: center;
     color: #333333; }
   .results-table td {
@@ -55,8 +61,9 @@ input {
     text-align: right;
     padding-right: 10px; }
     .results-table td.pc {
-      min-width: 50px;
-      padding-right: 10px; }
+      min-width: 50px; }
+    .results-table td.score {
+      min-width: 30px; }
   .results-table tr:nth-child(even) {
     background-color: whitesmoke; }
   .results-table tr:nth-child(odd) {

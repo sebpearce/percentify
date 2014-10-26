@@ -2,7 +2,7 @@ $default-font: 'Helvetica Neue', 'Verdana', sans-serif;
 $main-heading-size: 24px;
 $input-font: 16px $default-font;
 $label-font: bold 14px 'Helvetica Neue', sans-serif;
-$table-font: bold 16px 'Helvetica Neue', sans-serif;
+$table-font: bold 14px 'Helvetica Neue', sans-serif;
 $default-font-color: #333;
 $table-even-row-color: hsl(0,0%,96%);
 
@@ -53,10 +53,17 @@ label {
 
 input {
   font: $input-font;
-  text-align: left;
+  text-align: center;
   width: 30px;
   outline: none;
   border: none;
+  margin-bottom: 20px;
+  color: hsl(210,60%,60%);
+  font-weight: bold;
+  background-color: hsl(210,80%,97%);
+}
+
+#worth-input {
   margin-bottom: 30px;
 }
 
@@ -66,7 +73,7 @@ input {
   margin: 0 10px 20px 0;
   td, th {
     padding: 6px;
-    min-width: 65px;
+    min-width: 50px;
     text-align: center;
     color: $default-font-color;
   }
@@ -80,8 +87,11 @@ input {
       // padding-left: 18px;
       // border-left: 1px solid #aaa;
       min-width: 50px;
-      padding-right: 10px;
+      // padding-right: 10px;
       // background-color: pink;
+    }
+    &.score {
+      min-width: 30px;
     }
   }
   tr {

@@ -22,13 +22,16 @@
     <h1>Percentify</h1>
 
     <div id="checkbox-container">
-      <input type="checkbox" id="rounded"><label>4.9% &rightarrow; 5%</label>
-      <input type="checkbox" id="half"><label>0.5</label>
+      <input type="checkbox" id="rounded"><label>Round to whole numbers</label>
+      <input type="checkbox" id="half"><label>Include half-points</label>
     </div> 
 
     <div id="input-container">
       <label for="number-input">Total number of exam questions:</label>
-      <input type="text" id="number-input" autofocus>
+      <input type="text" id="number-input" autofocus><br>
+      <label for="number-input">Exam is worth</label>
+      <input type="text" id="worth-input" value="100" autofocus>
+      <label for="number-input">% of final grade</label>
     </div>
 
     <div id="results-table-container">

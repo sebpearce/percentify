@@ -4,11 +4,24 @@ var inputBox = document.getElementById('number-input');
 var tableDiv = document.getElementById('results-table-container');
 var roundedCheck = document.getElementById('rounded');
 var halfCheck = document.getElementById('half');
+var worthInput = document.getElementById('worth-input');
 var halfMode = false;
 var roundedMode = false;
+var whatItsWorth = 100;
 
 function isInt(x) {
   return (typeof x === 'number' && (x % 1) === 0);
+}
+
+function roundIfNeeded(num) {
+  if (num % 1 != 0) {
+    if (!roundedMode) {
+      num = num.toFixed(1);
+    } else {
+      num = Math.round(num);
+    }    
+  }
+  return num;
 }
 
 function makeTable (num) {
@@ -17,18 +30,18 @@ function makeTable (num) {
 
   for (var i = (halfMode ? 0.5 : 1); i<=num; i = (halfMode ? i+0.5 : i+1)) {
     var p = (i / num * 100);
-    if (p % 1 != 0) {
-        if (!roundedMode) {
-          p = p.toFixed(1);
-        } else {
-          p = Math.round(p);
-        }
-    }
+    var t = p * (whatItsWorth / 100);
+    p = roundIfNeeded(p);
+    t = roundIfNeeded(t);
 
     table += '<tr>';
     table += '<td class="score">' + i;
-    table += '<span class="out-of">/' + num + '</span>';
-    table += '</td><td class="pc">' + p + '%</td>';
+    // table += '<span class="out-of">/' + num + '</span>';
+    if (whatItsWorth != 100) {
+      table += '</td><td class="pc">' + p + '%</td><td>(' + t + '%)</td>';
+    } else {
+      table += '</td><td class="pc">' + p + '%</td>';
+    }
     table += '</tr>';
     if (i % 10 == 0) {
       table += '</table><table class="results-table">';
@@ -61,10 +74,6 @@ function inputHandler(e) {
   return 0;
 }
 
-function toggle(value) {
-  return (value ? !value : !value);
-}
-
 function halfCheckHandler(e) {
   if (e.target.checked) {
     halfMode = true;
@@ -85,7 +94,17 @@ function roundedCheckHandler(e) {
   return 0;
 }
 
+function worthInputHandler(e) {
+  var input = parseInt(worthInput.value);
+  if (e.keyCode == 13 && isInt(input) && input <= 100) {
+    whatItsWorth = input;
+    processInput();
+  }
+  return 0;  
+}
+
 inputBox.addEventListener('keypress', inputHandler, false);
 halfCheck.addEventListener('click', halfCheckHandler, false);
 roundedCheck.addEventListener('click', roundedCheckHandler, false);
+worthInput.addEventListener('keypress', worthInputHandler, false);
 
