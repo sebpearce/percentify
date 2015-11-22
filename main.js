@@ -16,7 +16,7 @@
   }
 
   function roundIfNeeded(num) {
-    if (num % 1 != 0) {
+    if (num % 1 !== 0) {
       if (!roundedMode) {
         num = num.toFixed(1);
       } else {
@@ -39,16 +39,16 @@
       table += '<tr>';
       table += '<td class="score">' + i;
       // table += '<span class="out-of">/' + num + '</span>';
-      if (whatItsWorth != 100) {
+      if (whatItsWorth !== 100) {
         table += '</td><td class="pc">' + p + '%</td><td>(' + t + '%)</td>';
       } else {
         table += '</td><td class="pc">' + p + '%</td>';
       }
       table += '</tr>';
-      if (i % 10 == 0) {
+      if (i % 10 === 0) {
         table += '</table><table class="results-table">';
       }
-      if (i % 50 == 0) {
+      if (i % 50 === 0) {
         table += '</table>';
         table += '<div style="clear:left;"></div>';
         table += '<table class="results-table">';
@@ -70,7 +70,7 @@
   }
 
   function inputHandler(e) {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       processInput();
     }
     return 0;
@@ -98,7 +98,7 @@
 
   function worthInputHandler(e) {
     var input = parseInt(worthInput.value);
-    if (e.keyCode == 13 && isInt(input) && input <= 100) {
+    if (e.keyCode === 13 && isInt(input) && input <= 100) {
       whatItsWorth = input;
       processInput();
     }
